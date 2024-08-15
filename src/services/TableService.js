@@ -1,5 +1,5 @@
 import {store} from "../store/ReduxStore.js"
-import {getDetailAction, getListAction} from "../store/reducers/tableReducer.js"
+import {addItemAction, getDetailAction, getListAction} from "../store/reducers/tableReducer.js"
 import axios from "axios"
 import {changePageCountAction} from "../store/reducers/baseReducer.js"
 import {get_detail, get_list} from "../api/api.js";
@@ -22,6 +22,19 @@ class TableService {
   async getDetail(id) {
     const {data} = await axios.get(get_detail(id))
     this.dispatch(getDetailAction(data))
+  }
+
+  async getNewItem(socket) {
+    socket.onmessage = async (e) => {
+      const obj = JSON.parse(e.data)
+      const data = JSON.parse(obj)
+      this.dispatch(addItemAction(data))
+      setTimeout(()=>{
+        const el = document.getElementById(`row${data.id}`)
+        el.addEventListener("animationend", e => {el.className = ""})
+        el.className = "flash"
+      }, 50)
+    }
   }
 
 }

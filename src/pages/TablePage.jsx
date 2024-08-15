@@ -6,10 +6,12 @@ import BaseService from "../services/BaseService.js"
 import TableList from "../components/Table/TableList.jsx"
 import TableService from "../services/TableService.js"
 import ModalDetail from "../components/Table/modals/ModalDetail.jsx"
+import {table_socket} from "../api/api.js"
 
 const TablePage = () => {
   const dispatch = useDispatch()
   const [fetchData, setFetchData] = useState(0)
+  const [socket, setSocket] = useState({})
 
   const handlePageClick = (selectedPage) => {
     dispatch(changeCurrentPageAction(selectedPage.selected))
@@ -18,8 +20,13 @@ const TablePage = () => {
 
   useEffect(() => {
     TableService.getList(setFetchData)
+    setSocket(new WebSocket(table_socket()))
     return () => {BaseService.refreshTableData()}
   }, [])
+
+  useEffect(()=> {
+      TableService.getNewItem(socket)
+  }, [socket])
 
   return (
     <div className="page-container">

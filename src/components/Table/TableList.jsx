@@ -22,7 +22,7 @@ const TableList = ({fetchData}) => {
       accessorKey: 'received_date',
       header: 'Received',
       cell: ({cell, row}) => {
-        return moment(row.original.created_at).format('h:m A')
+        return moment(row.original.received_date).format('h:m A')
       },
     },
     {
