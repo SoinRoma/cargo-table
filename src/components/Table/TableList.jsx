@@ -2,16 +2,19 @@ import {flexRender, getCoreRowModel, getFilteredRowModel, getSortedRowModel, use
 import {useState} from "react"
 import TableEmpty from "../Base/TableEmpty.jsx"
 import TableSkeleton from "../Base/TableSkeleton.jsx"
-import {useSelector} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import moment from "moment"
+import {changeModalNameAction, openModalAction} from "../../store/reducers/modalReducer.js"
+import {htmlDecode} from "../../utils/textFormatter.js"
 
 const TableList = ({fetchData}) => {
+  const dispatch = useDispatch()
   const [sorting, setSorting] = useState([])
   const {tableList} = useSelector(state => state.tableReducer)
 
-  function htmlDecode(input) {
-    const doc = new DOMParser().parseFromString(input, "text/html");
-    return doc.documentElement.textContent;
+  function openModal(id) {
+    dispatch(openModalAction(id))
+    dispatch(changeModalNameAction('detail'))
   }
 
   const columns = [
@@ -84,7 +87,7 @@ const TableList = ({fetchData}) => {
         </thead>
         <tbody>
         {tableInstance.getRowModel().rows.length > 0 && fetchData === 1 && tableInstance.getRowModel().rows.map(rowEl =>
-          <tr key={rowEl.id} className="cu-p" id={`row${rowEl.original.id}`}>
+          <tr key={rowEl.id} className="cu-p" id={`row${rowEl.original.id}`} onClick={() => openModal(rowEl.original.id)}>
             {rowEl.getVisibleCells().map(cellEl =>
               <td key={cellEl.id}>
                 {flexRender(cellEl.column.columnDef.cell, cellEl.getContext())}

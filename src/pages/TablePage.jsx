@@ -5,6 +5,7 @@ import {changeCurrentPageAction} from "../store/reducers/baseReducer.js"
 import BaseService from "../services/BaseService.js"
 import TableList from "../components/Table/TableList.jsx"
 import TableService from "../services/TableService.js"
+import ModalDetail from "../components/Table/modals/ModalDetail.jsx"
 
 const TablePage = () => {
   const dispatch = useDispatch()
@@ -29,6 +30,7 @@ const TablePage = () => {
         <TableList fetchData={fetchData}/>
         <TablePagination handlePageClick={handlePageClick}/>
       </div>
+      <ModalDetail/>
     </div>
   )
 }

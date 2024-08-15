@@ -1,8 +1,8 @@
 import {store} from "../store/ReduxStore.js"
-import {getListAction} from "../store/reducers/tableReducer.js"
+import {getDetailAction, getListAction} from "../store/reducers/tableReducer.js"
 import axios from "axios"
 import {changePageCountAction} from "../store/reducers/baseReducer.js"
-import {get_list} from "../api/api.js";
+import {get_detail, get_list} from "../api/api.js";
 
 class TableService {
 
@@ -17,6 +17,11 @@ class TableService {
     if (data.results.length === 0) setFetchData(2)
     this.dispatch(getListAction(data.results))
     this.dispatch(changePageCountAction(Math.ceil(data.count / 25)))
+  }
+
+  async getDetail(id) {
+    const {data} = await axios.get(get_detail(id))
+    this.dispatch(getDetailAction(data))
   }
 
 }

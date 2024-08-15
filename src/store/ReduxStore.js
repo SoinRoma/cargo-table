@@ -3,9 +3,11 @@ import thunk from 'redux-thunk'
 
 import {baseReducer} from "./reducers/baseReducer"
 import {tableReducer} from "./reducers/tableReducer.js"
+import {modalReducer} from "./reducers/modalReducer.js"
 
 const rootReducer = combineReducers({
   baseReducer,
+  modalReducer,
   tableReducer
 })
 
