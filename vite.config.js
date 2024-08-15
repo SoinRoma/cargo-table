@@ -15,7 +15,7 @@ function renderChunks(deps) {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), ViteMinifyPlugin({})],
-  base: './',
+  base: '/cargo-table/',
   server: {
     port: 3006,
   },
@@ -29,5 +29,8 @@ export default defineConfig({
         },
       },
     },
-  }
+  },
+  define: {
+    "process.env.IS_PREACT": JSON.stringify("true"),
+  },
 })

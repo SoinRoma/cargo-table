@@ -1,8 +1,8 @@
-<h1 align="center">IT Gen</h1>
+<h1 align="center">Cargo Table</h1>
 
 ## Описание
 
-Приложение IT Gen для онлайн бронирования пациентов в клинику, обработка заявок и чат врачей с пациентами
+Тестовая таблица с данными по примеру Cargo ETL
 
 ### Используемые технологии
 ![React](https://img.shields.io/badge/-React-black?style=flat-square&logo=React&logoColor=React)
