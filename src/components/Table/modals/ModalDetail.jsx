@@ -26,10 +26,12 @@ const ModalDetail = () => {
           </div>
         </div>
         <div className="mt-2">
-          <p>Address: {detail?.contact_address}</p>
-          <p>Email: {detail?.contact_email}</p>
-          <p>Name: {detail?.contact_name}</p>
-          <p>Phone: {detail?.contact_phone}</p>
+          <p><strong>Pick-up at:</strong> {detail?.pick_up_at}</p>
+          <p><strong>Pick-up date:</strong> {detail?.pick_up_date}</p>
+          <p><strong>Deliver to:</strong> {detail?.deliver_to}</p>
+          <p><strong>Delivery date:</strong> {detail?.delivery_date}</p>
+          <p><strong>Miles:</strong> {detail?.miles}</p>
+          <p><strong>Suggested Truck Size:</strong> {detail?.suggested_truck}</p>
         </div>
       </div>
     </Modal>

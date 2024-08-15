@@ -31,8 +31,8 @@ class TableService {
       this.dispatch(addItemAction(data))
       setTimeout(()=>{
         const el = document.getElementById(`row${data.id}`)
-        el.addEventListener("animationend", e => {el.className = ""})
-        el.className = "flash"
+        el.addEventListener("animationend", e => {el.className = "cu-p"})
+        el.className = "cu-p flash"
       }, 50)
     }
   }
