@@ -1,0 +1,77 @@
+@media (max-width: 1400px) {
+  .page-container {
+    margin: 0 30px 0;
+  }
+
+  .table-wrapper {
+    height: calc(100vh - 140px);
+  }
+
+  .table-container {
+    max-height: calc(100vh - 290px);
+    width: calc(100vw - 115px);
+  }
+
+  .table-actions input {
+    width: 190px;
+  }
+}
+
+@media (max-height: 700px) {
+
+  .header {
+    height: 70px;
+    padding: 0 30px;
+  }
+
+  .header-notification {
+    padding: 12px 10px;
+  }
+
+  .sidebar-block {
+    height: calc(100vh - 70px);
+  }
+
+  .pages-block {
+    height: calc(100vh - 270px);
+  }
+
+  .table-button {
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  .not-btn {
+    margin-top: 30px;
+  }
+
+  .table-wrapper.not-btn {
+    height: calc(100vh - 65px);
+  }
+
+  .table-wrapper {
+    height: calc(100vh - 140px);
+  }
+
+  .table-wrapper.not-btn .table-container {
+    max-height: calc(100vh - 200px);
+  }
+
+  .table-container {
+    max-height: calc(100vh - 290px);
+  }
+
+  .chat-messages {
+    height: calc(100vh - 320px);
+    overflow-y: scroll;
+    margin-bottom: 20px;
+  }
+
+  .patient-block {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: calc(100vh - 195px);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+  }
+}
